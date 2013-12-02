@@ -1,0 +1,62 @@
+@charset "utf-8";
+#top {
+	width: 980px;
+	margin:0 auto;
+}
+
+#icon{
+	text-align:right;
+	height:27px;
+	}
+#icon li{
+	list-style-type:none;
+	vertical-align: bottom;
+	}
+#icon li span{
+	margin-top:10px;
+	vertical-align:bottom;
+}
+#icon li img{
+	
+	float:left;
+}
+#icon span{
+	float:left;
+	}
+	
+	
+#idinfo{
+	width:500px;
+	margin-right:0px;
+	margin-top:10px;
+	padding-right:0px;
+	float: right;
+	}
+	
+#top #nav {
+	
+	height: 45px;
+	width: 980px;
+	background-image: url(../imgs/bk_gray_45px.png);
+	background-repeat:inherit;
+	border: 1px solid #e3e3e3;
+	border-radius: 5px 5px 5px 5px;
+
+}
+
+#daliybox{
+	width:44px;
+	height:44px;
+	font-size:16px;
+	border:0px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFF;	
+	}
+#daliybox span{
+	margin-top:10px;
+	}
+#FirstNews{
+	background-image: url(../imgs/bk_gray_45px.png);
+	background-repeat:repeat-x;
+	height:290px;
+	}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<!-- 该路径下的资源不用过滤 -->  
+	<http pattern="/ws*" security="none" />  
+	<http auto-config="true" access-denied-page="/test/denied">    
+           <custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR" />
+         <!-- 
+	        login-page表示用户登陆时显示我们自定义的login.jsp。
+			这时我们访问系统显示的登陆页面将是我们上面创建的login.jsp。
+	 		authentication-failure-url表示用户登陆失败时，跳转到哪个页面。
+	 		当用户输入的登录名和密码不正确时，系统将再次跳转到/login.jsp，并添加一个error=true参数作为登陆失败的标示。
+	 		default-target-url表示登陆成功时，跳转到哪个页面。[3]
+         -->        
+            <form-login 
+            	login-page="/login/login"
+                authentication-failure-url="/login/login?error=true"
+                default-target-url="/test/security/transfer" 
+            />
+      
+        
+        	<logout logout-success-url="/test/index" />
+        
+    </http>
+
+
+
+	<authentication-manager>
+        <authentication-provider>
+				<jdbc-user-service data-source-ref="dataSource"
+				  users-by-username-query="select username,password,status as enabled
+                                         from t_security_user
+                                        where username=?"
+            	  authorities-by-username-query="select u.username,r.name as authority
+                                             from t_security_user u
+                                             join t_security_user_role ur
+                                               on u.id=ur.user_id
+                                             join t_security_role r
+                                               on r.id=ur.role_id
+                                            where u.username=?"/>
+			
+        </authentication-provider>
+    </authentication-manager>
+    
+    
+
+    
+    
+    <beans:bean id="filterSecurityInterceptor"
+        class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor" autowire="byType">
+        <beans:property name="securityMetadataSource" ref="filterInvocationSecurityMetadataSource" />
+        <beans:property name="authenticationManager" ref="org.springframework.security.authenticationManager"/>
+    </beans:bean>
+  
+    
+<beans:bean id="filterInvocationSecurityMetadataSource"
+    class="com.gd158.Security.JdbcFilterInvocationDefinitionSourceFactoryBean">
+    <beans:property name="dataSource" ref="dataSource"/>
+    <beans:property name="resourceQuery" value="
+        select re.res_string,r.name
+          from t_security_role r
+          join t_security_resc_role rr
+            on r.id=rr.role_id
+          join t_security_resc re
+            on re.id=rr.resc_id
+      order by re.priority"/>
+</beans:bean>
+
+
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<beans:property name="url" value="jdbc:mysql://127.0.0.1:3306/mvc158"/>
+		<beans:property name="username" value="gaoxy"/>
+		<beans:property name="password" value="gaoxy1liwy"/>
+	</beans:bean>
+</beans:beans>

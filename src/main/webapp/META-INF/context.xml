@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+		
+  <Resource name="jdbc/mysql/mvc158" auth="Container" 
+  					type="javax.sql.DataSource"
+  					driverClassName="com.mysql.jdbc.Driver"
+  					url="jdbc:mysql://127.0.0.1:3306/mvc158"
+            username="gaoxy" 
+            password="gaoxy1liwy" 
+            maxActive="20" 
+            maxIdle="10" 
+            maxWait="100"/>
+            
+  
+</Context>
+
+<!--	url="jdbc:microsoft:sqlserver://122.228.183.133:1223;DatabaseName=WZT"-->
