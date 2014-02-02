@@ -11,21 +11,23 @@ String d1=dd.toString();
 
 
 <html>
-	<head>
-		<title>Develop Example</title>
-	
-	<link href="<%=request.getContextPath()%>/css/cupertino/jquery-ui-1.9.2.custom.css"
+<head>
+<title>Develop Example</title>
+
+<link
+	href="<%=request.getContextPath()%>/css/cupertino/jquery-ui-1.9.2.custom.css"
 	rel="stylesheet" type="text/css">
 	<link href="<%=request.getContextPath()%>/css/ui.jqgrid.css"
-	rel="stylesheet" type="text/css">
+		rel="stylesheet" type="text/css">
 
-	<script src="<%=request.getContextPath()%>/js/jquery-1.8.3.js"
-		type="text/javascript"></script>
-	<script src="<%=request.getContextPath()%>/js/jquery-ui-1.9.2.custom.js"
-		type="text/javascript"></script>
+		<script src="<%=request.getContextPath()%>/js/jquery-1.8.3.js"
+			type="text/javascript"></script>
+		<script
+			src="<%=request.getContextPath()%>/js/jquery-ui-1.9.2.custom.js"
+			type="text/javascript"></script>
 		<script src="<%=request.getContextPath()%>/js/jquery.jqGrid.min.js"
-		type="text/javascript"></script>
-	<script language="javascript">
+			type="text/javascript"></script>
+		<script language="javascript">
 	
 	//DBRead-GenericDAO'
 	$(function(){
@@ -157,41 +159,43 @@ String d1=dd.toString();
 	
 	
 	</script>
+</head>
+<body>
+	<h1>Develop Example</h1>
 
-	</head>
-	<body>
-		<h1>Develop Example </h1>
+	<dl>
+		<dt>Base Info</dt>
+		<dd>
+			Time=<%=d1 %></dd>
+		<dd>
+			Servlet Path=<%=path %></dd>
+		<dd>
+			BasePath=<%=basePath %></dd>
+	</dl>
 
-		<dl>
-			<dt>Base Info</dt>
-			<dd>Time=<%=d1 %></dd>
-			<dd>Servlet Path=<%=path %></dd>
-			<dd>BasePath=<%=basePath %></dd>
-		</dl>
-		
-		<dl>
-			<dt>Ajax-String</dt>
-			<dd id="Ajax1">123</dd>
-		</dl>	
-		
-		<dl>
-			<dt>DBRead-jdbc</dt>
-			<dd id="DBRead-jdbctest">123</dd>
-		</dl>
-		<dl>
-			<dt>DBRead-Hibernate</dt>
-			<dd id="DBRead-Hibernate">123</dd>
-		</dl>
-		<dl>
-			<dt>DBRead-Spring-Hibernate</dt>
-			<dd id="DBRead-Spring-Hibernate">123</dd>
-		</dl>
-		<dl>
-			<dt>DBRead-Spring-Hibernate-GenericDAO</dt>
-			<dd id="DBRead-GenericDAO">123</dd>
-		</dl>
- 
- <!--  
+	<dl>
+		<dt>Ajax-String</dt>
+		<dd id="Ajax1">123</dd>
+	</dl>
+
+	<dl>
+		<dt>DBRead-jdbc</dt>
+		<dd id="DBRead-jdbctest">123</dd>
+	</dl>
+	<dl>
+		<dt>DBRead-Hibernate</dt>
+		<dd id="DBRead-Hibernate">123</dd>
+	</dl>
+	<dl>
+		<dt>DBRead-Spring-Hibernate</dt>
+		<dd id="DBRead-Spring-Hibernate">123</dd>
+	</dl>
+	<dl>
+		<dt>DBRead-Spring-Hibernate-GenericDAO</dt>
+		<dd id="DBRead-GenericDAO">123</dd>
+	</dl>
+
+	<!--  
  		<dl>
 			<dt>DB-JqGrid </dt>
 			<dd id="showjqgrid"><a href="javascript:avoid(0)">Open JqGrid</a></dd>
@@ -205,11 +209,11 @@ String d1=dd.toString();
 
 -->
 
-		<div id="secure"></div>
-		
-		<div id="jqgriddialog">
-			<table id="jsonTable"></table>
-			<div id="nav"></div>
-		</div>
-	</body>
+	<div id="secure"></div>
+
+	<div id="jqgriddialog">
+		<table id="jsonTable"></table>
+		<div id="nav"></div>
+	</div>
+</body>
 </html>

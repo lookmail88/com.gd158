@@ -3,28 +3,29 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 2013-9-5 13:01:41 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="com.gd158.Entity.DataBaseMapping.TSysIllegalkeywords" table="t_sys_illegalkeywords">
-        <id name="keywords" type="string">
-            <column name="KEYWORDS" length="50" />
-            <generator class="assigned" />
-        </id>
-        <property name="id" type="java.lang.Integer">
-            <column name="ID" />
-        </property>
-        <property name="setdate" type="timestamp">
-            <column name="SETDATE" length="19" />
-        </property>
-        <property name="setuserid" type="string">
-            <column name="SETUSERID" length="32" />
-        </property>
-        <property name="memory1" type="string">
-            <column name="MEMORY1" length="200" />
-        </property>
-        <property name="memory2" type="string">
-            <column name="MEMORY2" length="200" />
-        </property>
-        <property name="memory3" type="string">
-            <column name="MEMORY3" length="200" />
-        </property>
-    </class>
+	<class name="com.gd158.Entity.DataBaseMapping.TSysIllegalkeywords"
+		table="t_sys_illegalkeywords">
+		<id name="keywords" type="string">
+			<column name="KEYWORDS" length="50" />
+			<generator class="assigned" />
+		</id>
+		<property name="id" type="java.lang.Integer">
+			<column name="ID" />
+		</property>
+		<property name="setdate" type="timestamp">
+			<column name="SETDATE" length="19" />
+		</property>
+		<property name="setuserid" type="string">
+			<column name="SETUSERID" length="32" />
+		</property>
+		<property name="memory1" type="string">
+			<column name="MEMORY1" length="200" />
+		</property>
+		<property name="memory2" type="string">
+			<column name="MEMORY2" length="200" />
+		</property>
+		<property name="memory3" type="string">
+			<column name="MEMORY3" length="200" />
+		</property>
+	</class>
 </hibernate-mapping>

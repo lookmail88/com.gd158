@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.gd158.Utils.Tools;
+import com.gd158.Utils.*;
+
 
 
 
@@ -28,7 +29,7 @@ public class JqGrid<T> {
 	public String genericJqGrid(Model model,
 			@PathVariable("classname") String classname, HttpServletRequest request){
 		logger.debug("######genericJqGrid Begin######");
-		Tools.PrintRequest(request);
+		com.gd158.Utils.Tools.PrintRequest(request);
 
 		int opsign = 0;
 

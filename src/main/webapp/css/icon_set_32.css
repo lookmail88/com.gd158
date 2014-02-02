@@ -1,43 +1,148 @@
 @charset "utf-8";
-.icon32{ background: url(../imgs/Icon_set_32.png) no-repeat;width:36px; line-height:36px; display:inline-block;} 
-.icon32x01y01{background-position:  	0px	0px	;}
-.icon32x02y01{background-position:  	-36px	0px	;}
-.icon32x03y01{background-position:  	-72px	0px	;}
-.icon32x04y01{background-position:  	-108px	0px	;}
-.icon32x05y01{background-position:  	-144px	0px	;}
 
-.icon32x01y02{background-position:  	0px	-36px	;}
-.icon32x02y02{background-position:  	-36px	-36px	;}
-.icon32x03y02{background-position:  	-72px	-36px	;}
-.icon32x04y02{background-position:  	-108px	-36px	;}
-.icon32x05y02{background-position:  	-144px	-36px	;}
+.icon32 {
+	background: url(../imgs/Icon_set_32.png) no-repeat;
+	width: 36px;
+	line-height: 36px;
+	display: inline-block;
+}
 
-.icon32x01y03{background-position:  	0px	-72px	;}
-.icon32x02y03{background-position:  	-36px	-72px	;}
-.icon32x03y03{background-position:  	-72px	-72px	;}
-.icon32x04y03{background-position:  	-108px	-72px	;}
-.icon32x05y03{background-position:  	-144px	-72px	;}
+.icon32x01y01 {
+	background-position: 0px 0px;
+}
 
-.icon32x01y04{background-position:  	0px	-108px	;}
-.icon32x02y04{background-position:  	-36px	-108px	;}
-.icon32x03y04{background-position:  	-72px	-108px	;}
-.icon32x04y04{background-position:  	-108px	-108px	;}
-.icon32x05y04{background-position:  	-144px	-108px	;}
+.icon32x02y01 {
+	background-position: -36px 0px;
+}
 
-.icon32x01y05{background-position:  	0px	-144px	;}
-.icon32x02y05{background-position:  	-36px	-144px	;}
-.icon32x03y05{background-position:  	-72px	-144px	;}
-.icon32x04y05{background-position:  	-108px	-144px	;}
-.icon32x05y05{background-position:  	-144px	-144px	;}
+.icon32x03y01 {
+	background-position: -72px 0px;
+}
 
-.icon32x01y06{background-position:  	0px	-180px	;}
-.icon32x02y06{background-position:  	-36px	-180px	;}
-.icon32x03y06{background-position:  	-72px	-180px	;}
-.icon32x04y06{background-position:  	-108px	-180px	;}
-.icon32x05y06{background-position:  	-144px	-180px	;}
+.icon32x04y01 {
+	background-position: -108px 0px;
+}
 
-.icon32x01y07{background-position:  	0px	-216px	;}
-.icon32x02y07{background-position:  	-36px	-216px	;}
-.icon32x03y07{background-position:  	-72px	-216px	;}
-.icon32x04y07{background-position:  	-108px	-216px	;}
-.icon32x05y07{background-position:  	-144px	-216px	;}
+.icon32x05y01 {
+	background-position: -144px 0px;
+}
+
+.icon32x01y02 {
+	background-position: 0px -36px;
+}
+
+.icon32x02y02 {
+	background-position: -36px -36px;
+}
+
+.icon32x03y02 {
+	background-position: -72px -36px;
+}
+
+.icon32x04y02 {
+	background-position: -108px -36px;
+}
+
+.icon32x05y02 {
+	background-position: -144px -36px;
+}
+
+.icon32x01y03 {
+	background-position: 0px -72px;
+}
+
+.icon32x02y03 {
+	background-position: -36px -72px;
+}
+
+.icon32x03y03 {
+	background-position: -72px -72px;
+}
+
+.icon32x04y03 {
+	background-position: -108px -72px;
+}
+
+.icon32x05y03 {
+	background-position: -144px -72px;
+}
+
+.icon32x01y04 {
+	background-position: 0px -108px;
+}
+
+.icon32x02y04 {
+	background-position: -36px -108px;
+}
+
+.icon32x03y04 {
+	background-position: -72px -108px;
+}
+
+.icon32x04y04 {
+	background-position: -108px -108px;
+}
+
+.icon32x05y04 {
+	background-position: -144px -108px;
+}
+
+.icon32x01y05 {
+	background-position: 0px -144px;
+}
+
+.icon32x02y05 {
+	background-position: -36px -144px;
+}
+
+.icon32x03y05 {
+	background-position: -72px -144px;
+}
+
+.icon32x04y05 {
+	background-position: -108px -144px;
+}
+
+.icon32x05y05 {
+	background-position: -144px -144px;
+}
+
+.icon32x01y06 {
+	background-position: 0px -180px;
+}
+
+.icon32x02y06 {
+	background-position: -36px -180px;
+}
+
+.icon32x03y06 {
+	background-position: -72px -180px;
+}
+
+.icon32x04y06 {
+	background-position: -108px -180px;
+}
+
+.icon32x05y06 {
+	background-position: -144px -180px;
+}
+
+.icon32x01y07 {
+	background-position: 0px -216px;
+}
+
+.icon32x02y07 {
+	background-position: -36px -216px;
+}
+
+.icon32x03y07 {
+	background-position: -72px -216px;
+}
+
+.icon32x04y07 {
+	background-position: -108px -216px;
+}
+
+.icon32x05y07 {
+	background-position: -144px -216px;
+}
