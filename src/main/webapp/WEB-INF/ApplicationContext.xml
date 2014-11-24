@@ -1,0 +1,204 @@
+<<<<<<< HEAD:src/main/webapp/WEB-INF/applicationContext.xml
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="    
+                http://www.springframework.org/schema/beans     
+                http://www.springframework.org/schema/beans/spring-beans-2.5.xsd    
+                http://www.springframework.org/schema/aop     
+                http://www.springframework.org/schema/aop/spring-aop-2.5.xsd    
+                http://www.springframework.org/schema/tx     
+                http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-autowire="byName" default-lazy-init="true">
+
+	<!-- 注意上面的default-autowire="byName"，如果没有这个声明那么HibernateDaoSupport中的sessionFactory不会被注入 -->
+
+
+
+	<!-- 约定优于配置，约定优于配置 -->
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/mvc158" />
+		<property name="username" value="gaoxy" />
+		<property name="password" value="gaoxy1liwy" />
+	</bean>
+
+	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		
+		<property name="mappingLocations" >  
+			<list>
+				<value>classpath:com/gd158/Entity/**/*.hbm.xml</value>
+			</list>
+		</property>
+
+		<!-- <property name="mappingDirectoryLocations"> <list> 这里直接映射的pojo类所在的包，简单方便不用没次加一个pojo类都需要到这里来添加 
+			<value>classpath:com/gd158/Entity/DataBaseMapping</value> </list> </property> -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="current_session_context_class">thread</prop>
+				<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>  
+			</props>
+		</property>
+		
+	</bean>
+
+
+
+	<!-- 自动扫描组件，这里要把web下面的 controller去除，他们是在spring3-servlet.xml中配置的，如果不去除会影响事务管理的。 -->
+	<context:component-scan base-package="com.gd158">
+		<context:exclude-filter type="regex"
+			expression="com.gd158.Action.*" />
+	</context:component-scan>
+
+	<!-- 下面是配置声明式事务管理的，个人感觉比用注解管理事务要简单方便 -->
+	<!-- 配置使用注解的方式来使用事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 配置那些类的方法进行事务管理,需要aopalliance-1.0.jar和aspectjweaver.jar，当前com.neusoft.leehom.service包中的子包， 
+		类中所有方法需要，还需要参考tx:advice的设置 -->
+
+	<!-- 这是事务通知操作，使用的事务管理器引用自 transactionManager -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<tx:advice id="txAdice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="create*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="merge*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="put*" propagation="REQUIRED" />
+			<tx:method name="use*" propagation="REQUIRED" />
+			<!--hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到 -->
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="count*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="list*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+<tx:annotation-driven transaction-manager="transactionManager" />  
+
+</beans>
+=======
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="    
+                http://www.springframework.org/schema/beans     
+                http://www.springframework.org/schema/beans/spring-beans-2.5.xsd    
+                http://www.springframework.org/schema/aop     
+                http://www.springframework.org/schema/aop/spring-aop-2.5.xsd  
+                http://www.springframework.org/schema/mvc      
+          		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd    
+                http://www.springframework.org/schema/tx     
+                http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-autowire="byName" default-lazy-init="true">
+
+	<!-- 注意上面的default-autowire="byName"，如果没有这个声明那么HibernateDaoSupport中的sessionFactory不会被注入 -->
+
+
+
+	<!-- 约定优于配置，约定优于配置 -->
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/mvc158" />
+		<property name="username" value="gaoxy" />
+		<property name="password" value="gaoxy1liwy" />
+	</bean>
+
+	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:com/gd158/Entity/**/*.hbm.xml</value>
+			</list>
+		</property>
+
+		<!-- <property name="mappingDirectoryLocations"> <list> 这里直接映射的pojo类所在的包，简单方便不用没次加一个pojo类都需要到这里来添加 
+			<value>classpath:com/gd158/Entity/DataBaseMapping</value> </list> </property> -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="current_session_context_class">thread</prop>
+				<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
+			</props>
+		</property>
+
+	</bean>
+
+
+
+	<!-- 自动扫描组件，这里要把web下面的 controller去除，他们是在spring3-servlet.xml中配置的，如果不去除会影响事务管理的。 -->
+	<context:component-scan base-package="com.gd158">
+		<context:exclude-filter type="regex"
+			expression="com.gd158.Action.*" />
+	</context:component-scan>
+
+	<!-- 下面是配置声明式事务管理的，个人感觉比用注解管理事务要简单方便 -->
+	<!-- 配置使用注解的方式来使用事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 配置那些类的方法进行事务管理,需要aopalliance-1.0.jar和aspectjweaver.jar，当前com.neusoft.leehom.service包中的子包， 
+		类中所有方法需要，还需要参考tx:advice的设置 -->
+
+	<!-- 这是事务通知操作，使用的事务管理器引用自 transactionManager -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<tx:advice id="txAdice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="create*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="merge*" propagation="REQUIRED" />
+			<tx:method name="del*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="put*" propagation="REQUIRED" />
+			<tx:method name="use*" propagation="REQUIRED" />
+			<!--hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到 -->
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="count*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="list*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+
+
+</beans>
+>>>>>>> 475e42f293fd099d782f2cd71dd97de25fb59966:src/main/webapp/WEB-INF/ApplicationContext.xml
